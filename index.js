@@ -6,7 +6,6 @@ const client = new Discord.Client();
 const config = require('./config.json');
 client.config = config;
 
-/* Load all events */
 fs.readdir("./events/", (_err, files) => {
     files.forEach((file) => {
         if (!file.endsWith(".js")) return;
@@ -20,7 +19,6 @@ fs.readdir("./events/", (_err, files) => {
 
 client.commands = new Discord.Collection();
 
-/* Load all commands */
 fs.readdir("./prex/", (_err, files) => {
     files.forEach((file) => {
         if (!file.endsWith(".js")) return;
@@ -31,5 +29,4 @@ fs.readdir("./prex/", (_err, files) => {
     });
 });
 
-// Login
 client.login(config.token);
